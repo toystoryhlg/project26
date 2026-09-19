@@ -1,0 +1,1189 @@
+/* ==========================================================================
+   STUDIO / DARK LUXURY STYLING
+   Portfolio: นาย นนทพัทธ์ แสงจันทร์ (Nontapat Saengchan)
+   Aesthetic: High-end creative agency portfolio, cinematic dark luxury,
+              refined minimalism, subtle lighting beams, Syne typography.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-onyx: #09090b;
+    --bg-charcoal: #121216;
+    --bg-charcoal-elevated: #18181f;
+    --border-translucent: rgba(255, 255, 255, 0.08);
+    --border-translucent-hover: rgba(255, 255, 255, 0.18);
+    --text-silver: #94a3b8;
+    --text-silver-bright: #f1f5f9;
+    --text-muted: #64748b;
+    
+    /* Luxury Accents */
+    --accent-gold: #e2b774;
+    --accent-gold-glow: rgba(226, 183, 116, 0.22);
+    --accent-purple: #a855f7;
+    --accent-purple-glow: rgba(168, 85, 247, 0.25);
+    --accent-purple-subtle: rgba(168, 85, 247, 0.08);
+
+    /* Typography */
+    --font-heading: 'Syne', sans-serif;
+    --font-serif: 'Instrument Serif', serif;
+    --font-body: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
+
+    /* Footer (Specific User Requirement: Fluid width & Light Gray) */
+    --footer-bg: #e2e8f0;
+    --footer-text: #0f172a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--bg-onyx);
+    color: var(--text-silver);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    letter-spacing: -0.01em;
+}
+
+/* Background Ambient Lighting Beams */
+.ambient-lighting-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.beam-1 {
+    position: absolute;
+    top: -20%;
+    left: 15%;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, rgba(9, 9, 11, 0) 70%);
+    filter: blur(80px);
+    animation: pulseBeam 14s ease-in-out infinite alternate;
+}
+
+.beam-2 {
+    position: absolute;
+    top: 30%;
+    right: -10%;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(226, 183, 116, 0.08) 0%, rgba(9, 9, 11, 0) 70%);
+    filter: blur(100px);
+    animation: pulseBeam 18s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes pulseBeam {
+    0% { transform: scale(1) translate(0, 0); opacity: 0.7; }
+    100% { transform: scale(1.2) translate(40px, 30px); opacity: 1; }
+}
+
+/* Subtle Noise Texture for Cinematic Feel */
+.cinematic-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   1. SPLASH SCREEN: CINEMATIC LUXURY REVEAL
+   ========================================================================== */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050507;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+}
+
+#splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.splash-spotlight-beam {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(226, 183, 116, 0.08) 40%, transparent 70%);
+    filter: blur(60px);
+    z-index: 1;
+    animation: rotateSpotlight 10s infinite linear;
+}
+
+@keyframes rotateSpotlight {
+    from { transform: rotate(0deg) scale(1); }
+    to { transform: rotate(360deg) scale(1.1); }
+}
+
+.splash-content-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 680px;
+    padding: 2.5rem;
+}
+
+.splash-tagline {
+    font-family: var(--font-heading);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+}
+
+.splash-hero-name {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--text-silver-bright);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.splash-serif-role {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-style: italic;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+}
+
+.splash-loading-line-track {
+    width: 280px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.splash-loading-line-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-gold));
+    box-shadow: 0 0 14px var(--accent-gold);
+    transition: width 0.1s linear;
+}
+
+.splash-btn-enter {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-translucent);
+    color: var(--text-silver-bright);
+    padding: 10px 28px;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    border-radius: 40px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.splash-btn-enter:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   2. MAIN STUDIO APPLICATION LAYOUT
+   ========================================================================== */
+.studio-app-container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.studio-main-wrapper {
+    flex: 1;
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+}
+
+/* Studio Header & Brand */
+.studio-top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    background: rgba(18, 18, 22, 0.65);
+    border: 1px solid var(--border-translucent);
+    backdrop-filter: blur(20px);
+    border-radius: 100px;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.brand-mark {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-silver-bright);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    box-shadow: 0 0 10px var(--accent-gold);
+}
+
+.top-badge-status {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-purple);
+    background: var(--accent-purple-subtle);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    padding: 5px 14px;
+    border-radius: 30px;
+}
+
+/* Studio Hero Section */
+.studio-hero-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(22, 22, 28, 0.8) 0%, rgba(18, 18, 22, 0.95) 100%);
+    border: 1px solid var(--border-translucent);
+    border-radius: 20px;
+    padding: 3.5rem 3rem;
+    margin-bottom: 2.5rem;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.hero-radial-spotlight {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(226, 183, 116, 0.08) 50%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.hero-editorial-lead {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--accent-gold);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-editorial-lead::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-gold), transparent);
+    max-width: 100px;
+}
+
+.hero-editorial-name {
+    font-family: var(--font-heading);
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.15;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+.hero-editorial-subtitle {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-style: italic;
+    color: var(--text-silver);
+    margin-bottom: 1.6rem;
+    font-weight: 400;
+}
+
+.hero-editorial-bio {
+    color: var(--text-silver);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 620px;
+}
+
+.hero-kpi-strip {
+    display: flex;
+    gap: 2.5rem;
+    border-top: 1px solid var(--border-translucent);
+    padding-top: 1.5rem;
+}
+
+.kpi-strip-item .val {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.kpi-strip-item .lbl {
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Portrait Showcase with Rim Light Glow */
+.hero-portrait-frame {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 4/5;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(168, 85, 247, 0.2);
+    cursor: pointer;
+    background: #000;
+}
+
+.hero-portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-portrait-frame:hover img {
+    transform: scale(1.05);
+}
+
+.portrait-gold-tag {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(9, 9, 11, 0.85);
+    border: 1px solid var(--border-translucent);
+    backdrop-filter: blur(12px);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   3. STUDIO NAVIGATION BAR (7 MENUS)
+   ========================================================================== */
+.studio-nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: rgba(18, 18, 22, 0.7);
+    border: 1px solid var(--border-translucent);
+    backdrop-filter: blur(16px);
+    padding: 8px 12px;
+    border-radius: 100px;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.studio-nav-item {
+    flex: 1;
+    min-width: 135px;
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text-silver);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1px solid transparent;
+}
+
+.studio-nav-item .nav-num {
+    font-size: 10.5px;
+    color: var(--accent-gold);
+    opacity: 0.7;
+}
+
+.studio-nav-item:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.studio-nav-item.active {
+    background: #ffffff;
+    color: #09090b;
+    border-color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.35);
+}
+
+.studio-nav-item.active .nav-num {
+    color: #09090b;
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   4. CONTENT SECTIONS (STUDIO DARK LUXURY CARDS)
+   ========================================================================== */
+.studio-section-view {
+    display: none;
+    animation: fadeInStudio 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.studio-section-view.active {
+    display: block;
+}
+
+@keyframes fadeInStudio {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-editorial-header {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.section-editorial-header .sup-title {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--accent-purple);
+    margin-bottom: 0.4rem;
+}
+
+.section-editorial-header h2 {
+    font-family: var(--font-heading);
+    font-size: 34px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Section 1: ประวัติการศึกษา (Luxury Timeline) */
+.luxury-timeline {
+    position: relative;
+    padding-left: 24px;
+    border-left: 1px solid var(--border-translucent);
+}
+
+.luxury-timeline-item {
+    position: relative;
+    margin-bottom: 2.8rem;
+}
+
+.luxury-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -29px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    box-shadow: 0 0 12px var(--accent-gold);
+}
+
+.luxury-card {
+    background: var(--bg-charcoal);
+    border: 1px solid var(--border-translucent);
+    border-radius: 16px;
+    padding: 2rem 2.4rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+    border-color: var(--border-translucent-hover);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px var(--accent-purple-glow);
+    transform: translateY(-3px);
+}
+
+.edu-year-badge {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.edu-title {
+    font-family: var(--font-heading);
+    font-size: 21px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.03em;
+}
+
+.edu-school-name {
+    font-size: 15.5px;
+    color: var(--accent-purple);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+}
+
+.edu-badge-gpa {
+    display: inline-block;
+    background: rgba(226, 183, 116, 0.12);
+    border: 1px solid rgba(226, 183, 116, 0.3);
+    color: var(--accent-gold);
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+
+.edu-points-list {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.edu-points-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 0.5rem;
+    color: var(--text-silver);
+    font-size: 14px;
+}
+
+.edu-points-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+}
+
+.btn-luxury-action {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-translucent);
+    color: var(--text-silver-bright);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-size: 11.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 1.2rem;
+    transition: all 0.25s ease;
+}
+
+.btn-luxury-action:hover {
+    background: #ffffff;
+    color: #09090b;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Section 2: สถานที่ติดต่อ (Studio Network Cards) */
+.contact-studio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.contact-studio-card {
+    background: var(--bg-charcoal);
+    border: 1px solid var(--border-translucent);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.contact-card-title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    border-bottom: 1px solid var(--border-translucent);
+    padding-bottom: 0.8rem;
+}
+
+.contact-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.2rem;
+    font-size: 14.5px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.04);
+    padding-bottom: 0.6rem;
+}
+
+.contact-line .lbl {
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-size: 11.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.contact-line .val {
+    color: var(--text-silver-bright);
+    font-weight: 500;
+    text-align: right;
+}
+
+.contact-line .val a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-line .val a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Section 3: ผลงานโดดเด่น (Curated Gallery Cards) */
+.curated-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 2rem;
+}
+
+.curated-card {
+    background: var(--bg-charcoal);
+    border: 1px solid var(--border-translucent);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.curated-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px var(--accent-gold-glow);
+    transform: translateY(-4px);
+}
+
+.curated-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #09090b;
+}
+
+.curated-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.curated-card:hover .curated-img-wrapper img {
+    transform: scale(1.06);
+}
+
+.curated-badge-pill {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(9, 9, 11, 0.85);
+    border: 1px solid var(--border-translucent);
+    backdrop-filter: blur(8px);
+    color: var(--accent-gold);
+    font-family: var(--font-heading);
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.curated-card-body {
+    padding: 1.8rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.curated-meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-purple);
+    margin-bottom: 0.6rem;
+}
+
+.curated-card-title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.02em;
+}
+
+.curated-card-desc {
+    color: var(--text-silver);
+    font-size: 13.5px;
+    line-height: 1.65;
+    margin-bottom: 1.4rem;
+    flex: 1;
+}
+
+.curated-stats-strip {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-translucent);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* Section 4 & 5: ผลงานวิชาการ & บทความวิจัย */
+.editorial-paper-card {
+    background: var(--bg-charcoal);
+    border: 1px solid var(--border-translucent);
+    border-radius: 16px;
+    padding: 2.2rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: all 0.3s ease;
+}
+
+.editorial-paper-card:hover {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px var(--accent-purple-glow);
+}
+
+.editorial-paper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+}
+
+.paper-id-tag {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+}
+
+.paper-indexing-pill {
+    background: var(--accent-purple-subtle);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    color: var(--accent-purple);
+    font-family: var(--font-heading);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.paper-thai-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+}
+
+.paper-en-title {
+    font-family: var(--font-serif);
+    font-size: 16.5px;
+    font-style: italic;
+    color: var(--text-silver);
+    margin-bottom: 1rem;
+}
+
+.paper-meta-info {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.paper-abstract-box {
+    background: rgba(9, 9, 11, 0.6);
+    border-left: 2px solid var(--accent-gold);
+    padding: 1rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 13.5px;
+    color: var(--text-silver);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* Section 6: งานวิทยากร (Keynote & Workshops) */
+.speaker-studio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2rem;
+}
+
+.speaker-studio-card {
+    background: var(--bg-charcoal);
+    border: 1px solid var(--border-translucent);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.speaker-studio-card:hover {
+    border-color: rgba(226, 183, 116, 0.35);
+    transform: translateY(-3px);
+}
+
+.speaker-date-tag {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+}
+
+.speaker-topic-title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+/* Section 7: Dashboard (Executive Analytics) */
+.luxury-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.luxury-kpi-card {
+    background: var(--bg-charcoal);
+    border: 1px solid var(--border-translucent);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.luxury-kpi-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.luxury-kpi-card.gold-glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gold);
+    box-shadow: 0 0 10px var(--accent-gold);
+}
+
+.luxury-kpi-card.purple-glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-purple);
+    box-shadow: 0 0 10px var(--accent-purple);
+}
+
+.luxury-kpi-val {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+}
+
+.luxury-kpi-lbl {
+    font-size: 12.5px;
+    color: var(--text-silver);
+}
+
+.luxury-kpi-unit {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-top: 6px;
+}
+
+.luxury-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.luxury-chart-card {
+    background: var(--bg-charcoal);
+    border: 1px solid var(--border-translucent);
+    border-radius: 16px;
+    padding: 2.2rem;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.luxury-chart-title {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chart-canvas-box {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+canvas.studio-chart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ==========================================================================
+   5. IMAGE HIGH-RES MODAL (STUDIO LIGHTBOX)
+   ========================================================================== */
+.studio-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 5, 7, 0.95);
+    z-index: 10001;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+}
+
+.studio-modal.active {
+    display: flex;
+}
+
+.studio-modal-box {
+    max-width: 960px;
+    width: 95%;
+    background: var(--bg-charcoal);
+    border: 1px solid var(--border-translucent-hover);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 50px rgba(168, 85, 247, 0.2);
+}
+
+.studio-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.8rem;
+    border-bottom: 1px solid var(--border-translucent);
+    font-family: var(--font-heading);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.btn-close-studio-modal {
+    background: transparent;
+    border: 1px solid var(--border-translucent);
+    color: var(--text-silver);
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    transition: all 0.2s;
+}
+
+.btn-close-studio-modal:hover {
+    background: #ffffff;
+    color: #09090b;
+}
+
+.studio-modal-img-frame {
+    max-height: 72vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+}
+
+.studio-modal-img-frame img {
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   6. FOOTER: FLUID WIDTH (EXPLICIT USER REQUIREMENT)
+   - fluid width (100% full width edge-to-edge)
+   - สีพื้นหลัง เทาอ่อน (#e2e8f0 / #d1d5db)
+   - ระบบเว็บส่วนบุคคล พัฒนาโดย [นาย นนทพัทธ์ แสงจันทร์]
+   ========================================================================== */
+.footer-fluid-luxury {
+    width: 100%;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 22px 24px;
+    text-align: center;
+    border-top: 2px solid #cbd5e1;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    margin-top: auto;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.footer-fluid-luxury .author-pill {
+    color: #1e3a8a;
+    font-weight: 700;
+}
+
+.footer-fluid-luxury .studio-sub-stamp {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: #475569;
+    margin-top: 6px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .studio-hero-card {
+        grid-template-columns: 1fr;
+        padding: 2.2rem 1.8rem;
+        gap: 2rem;
+    }
+    .hero-portrait-frame {
+        max-width: 280px;
+    }
+    .hero-editorial-name {
+        font-size: 34px;
+    }
+    .studio-nav-bar {
+        border-radius: 20px;
+    }
+    .studio-nav-item {
+        min-width: 100%;
+        border-radius: 12px;
+    }
+    .luxury-charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
